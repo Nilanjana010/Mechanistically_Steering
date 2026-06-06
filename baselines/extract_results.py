@@ -2,8 +2,8 @@ import csv
 from model_config import TARGET_MODEL_SIZE
 
 # Step 1: Set source and target CSV files.
-INPUT_CSV  = f"/mech_steer/baselines/results/all_gemma_{TARGET_MODEL_SIZE}_inference_results.csv"
-OUTPUT_CSV = f"/mech_steer/baselines/results/pairs_{TARGET_MODEL_SIZE}.csv"
+INPUT_CSV  = f"/Mechanistically_Steering/baselines/results/all_gemma_{TARGET_MODEL_SIZE}_inference_results.csv"
+OUTPUT_CSV = f"/Mechanistically_Steering/baselines/results/pairs_{TARGET_MODEL_SIZE}.csv"
 
 
 def extract_pairs(input_csv: str = INPUT_CSV, output_csv: str = OUTPUT_CSV):

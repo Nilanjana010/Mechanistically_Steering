@@ -5,8 +5,8 @@ import os
 from model_config import TARGET_MODEL_SIZE
 
 # Step 1: Set judge input and output files.
-INPUT_CSV  = f"/mech_steer/baselines/results/pairs_{TARGET_MODEL_SIZE}.csv"
-OUTPUT_CSV = f"/mech_steer/baselines/results/scores_{TARGET_MODEL_SIZE}.csv"
+INPUT_CSV  = f"/Mechanistically_Steering/baselines/results/pairs_{TARGET_MODEL_SIZE}.csv"
+OUTPUT_CSV = f"/Mechanistically_Steering/baselines/results/scores_{TARGET_MODEL_SIZE}.csv"
 
 
 def build_prompt(prompt: str, response: str) -> str:
