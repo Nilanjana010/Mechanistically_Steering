@@ -8,8 +8,8 @@ from model_config import TARGET_MODEL_SIZE, get_model_type
 target_model_type = get_model_type(TARGET_MODEL_SIZE)
 
 # Step 2: Set run location and dataset list.
-BASE_DIR = '/mech_steer/baselines/datasets'
-os.chdir(BASE_DIR)
+RUN_DIR = '/mech_steer/sae_robustness'
+DATASET_DIR = '/mech_steer/baselines/datasets'
 total_samples = 999
 
 datasets_to_run = [
@@ -50,13 +50,15 @@ for dataset_name in datasets_to_run:
             if torch.cuda.is_available():
                 torch.cuda.empty_cache()
 
+            data_file = os.path.join(DATASET_DIR, dataset_name)
+
             command = (
                 f"python main.py "
                 f"--mode suffix "
                 f"--level population "
                 f"--model_type {target_model_type} "
                 f"--layer_num 16 "
-                f"--data_file {dataset_name} "
+                f"--data_file {data_file} "
                 f"--sample_idx {i} "
                 f"--suffix_len 3 "
                 f"--batch_size {b_size} "
@@ -66,7 +68,13 @@ for dataset_name in datasets_to_run:
                 f"--log"
             )
 
-            result = subprocess.run(command, shell=True, stderr=subprocess.PIPE, text=True)
+            result = subprocess.run(
+                command,
+                shell=True,
+                cwd=RUN_DIR,
+                stderr=subprocess.PIPE,
+                text=True,
+            )
 
             if result.returncode == 0:
                 print(f"Success on sample_idx {i} with batch_size {b_size}.")
@@ -91,7 +99,7 @@ for dataset_name in datasets_to_run:
 
     # Step 4: Copy dataset results to the final folder.
     print(f"\nFinished processing '{dataset_name}'. Copying to final destination...")
-    source_folder = f"results/{target_model_type}-{dataset_name}"
+    source_folder = os.path.join(RUN_DIR, "results", f"{target_model_type}-{dataset_name}")
 
     if os.path.exists(source_folder):
         target_folder = os.path.join("/mech_steer/baselines/results", f"{target_model_type}-{dataset_name}")
