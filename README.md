@@ -3,7 +3,8 @@
 
 1. To create the dataset from BeaverTails run `create_dataset.py`.
 2. To extract negative sentiments run `final_entity_grok.py`.
-3. To generate concept subspaces run `concept_generator.py`.
+3. To generate concept subspaces run `concept_generator.py`. Download the subspace generators used in this research, introduced by Wu et al. (2025), from Hugging Face:  
+[Gemma-ReFT-2B-IT](https://huggingface.co/pyvene/gemma-reft-2b-it-res-generator) / [Gemma-ReFT-9B-IT](https://huggingface.co/pyvene/gemma-reft-9b-it-res-generator).
 4. To extract the activation caches run `export_caches.py`.
 5. To compute cosine similarities run `gemma.py`.
 6. To execute the three feature-grouping strategies run `agglo_updated_linkage_2.py` and `agglo_updated_linkage_3.py`.
