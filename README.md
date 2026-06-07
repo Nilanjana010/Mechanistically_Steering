@@ -17,7 +17,7 @@
 1. Modify config (`baselines/model_config.py`) You can change the TARGET_MODEL_SIZE line to either 2b or 9b to run the respective models. Keep the same throughout entire run of the baseline files.
 2. Run attack (`baselines/run_attack.py`).
 
-   Before running attack, set up `sae_robustness` and patch its loader for Gemma 2-9B-it:
+   Before running, set up `sae_robustness` and patch its loader for Gemma 2-9B-it:
    1. Clone the repo:
       ```bash
       git clone https://github.com/AI4LIFE-GROUP/sae_robustness
@@ -34,10 +34,10 @@
         ```
       - Change line 36 to:
         ```python
-        			  filename="layer_16/width_16k/average_l0_75/params.npz",
+        filename="layer_16/width_16k/average_l0_75/params.npz",
         ```
-      - This is the final step for Gemma 2-9B-it
-      - Nothing is required for Gemma 2-2B
+      - This is the final step for Gemma 2-9B-it.
+      - Nothing is required for Gemma 2-2B.
       - Make sure the `sae_robustness` directory is in the root directory.
       - This is required to properly run the run_attack python file.
 
