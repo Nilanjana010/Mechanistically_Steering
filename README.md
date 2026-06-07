@@ -15,7 +15,7 @@
 
 ## Baseline:
 
-1. Modify config (`baselines/model_config.py`) You can change the TARGET_MODEL_SIZE line to either 2b or 9b to run the respective models.
+1. Modify config (`baselines/model_config.py`) You can change the TARGET_MODEL_SIZE line to either 2b or 9b to run the respective models. Keep the same throughout entire run of files.
 2. Run attack (`baselines/run_attack.py`).
 
    Before running attack, set up `sae_robustness` and patch its loader:
