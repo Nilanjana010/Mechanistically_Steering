@@ -1,5 +1,4 @@
-# Mechanistically_Steering
-## Gemma-2-2B/Gemma-2-9B:
+## Gemma-2-2B/Gemma-2-9B-IT:
 
 1. To create the dataset from BeaverTails run `create_dataset.py`.
 2. To extract negative sentiments run `final_entity_grok.py`.
