@@ -1,5 +1,17 @@
 # Mechanistically_Steering
-## Order of Running
+## Gemma-2-2B/Gemma-2-9B:
+
+1. To create the dataset from BeaverTails run `create_dataset.py`.
+2. To extarct negative sentiments run `final_entity_grok.py`.
+3. To generte concept subspaces run `concept_generator.py`.
+4. To extract the activation caches run `export_caches.py`.
+5. To compute cosine similarity run `gemma.py`.
+6. To execute the three feature-grouping strategies run `agglo_updated_linkage_2.py` and `agglo_updated_linkage_3.py`.
+7. To create benign looking version of the original prompts run `grok_benign.py`.
+8. To run the steering experiments run `feature_steer_3.py` and `feature_steer_benign*.py`.
+9. To evaluate responses using Grok run `grok_jd.py` and `grok_jd_benign*.py`.
+
+## Baseline:
 
 1. Modify config (`baselines/model_config.py`).
 2. Run attack (`baselines/run_attack.py`).
