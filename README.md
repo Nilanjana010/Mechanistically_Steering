@@ -45,3 +45,7 @@
 4. Fix empty responses (`baselines/fix_empty_responses.py`).
 5. Extract results (`baselines/extract_results.py`).
 6. Run judge (`baselines/run_judge.py`).
+
+## Experiments:
+
+Experiments with Llama-3.1-8B and Conversations Gone Awry.
