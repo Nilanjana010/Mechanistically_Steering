@@ -1,9 +1,12 @@
 import csv
+import os
 from model_config import TARGET_MODEL_SIZE
 
 # Step 1: Set source and target CSV files.
-INPUT_CSV  = f"/Mechanistically_Steering/baselines/results/all_gemma_{TARGET_MODEL_SIZE}_inference_results.csv"
-OUTPUT_CSV = f"/Mechanistically_Steering/baselines/results/pairs_{TARGET_MODEL_SIZE}.csv"
+PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+RESULTS_DIR = os.path.join(PROJECT_DIR, 'baselines', 'results')
+INPUT_CSV  = os.path.join(RESULTS_DIR, f'all_gemma_{TARGET_MODEL_SIZE}_inference_results.csv')
+OUTPUT_CSV = os.path.join(RESULTS_DIR, f'pairs_{TARGET_MODEL_SIZE}.csv')
 
 
 def extract_pairs(input_csv: str = INPUT_CSV, output_csv: str = OUTPUT_CSV):

@@ -8,8 +8,9 @@ from model_config import TARGET_MODEL_SIZE, get_model_type
 target_model_type = get_model_type(TARGET_MODEL_SIZE)
 
 # Step 2: Set run location and dataset list.
-RUN_DIR = '/Mechanistically_Steering/sae_robustness'
-DATASET_DIR = '/Mechanistically_Steering/baselines/datasets'
+PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+RUN_DIR = os.path.join(PROJECT_DIR, 'sae_robustness')
+DATASET_DIR = os.path.join(PROJECT_DIR, 'baselines', 'datasets')
 total_samples = 999
 
 datasets_to_run = [
@@ -102,7 +103,7 @@ for dataset_name in datasets_to_run:
     source_folder = os.path.join(RUN_DIR, "results", f"{target_model_type}-{dataset_name}")
 
     if os.path.exists(source_folder):
-        target_folder = os.path.join("/Mechanistically_Steering/baselines/results", f"{target_model_type}-{dataset_name}")
+        target_folder = os.path.join(PROJECT_DIR, 'baselines', 'results', f"{target_model_type}-{dataset_name}")
         
         try:
             shutil.copytree(source_folder, target_folder, dirs_exist_ok=True)

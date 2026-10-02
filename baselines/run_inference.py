@@ -6,8 +6,9 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 from model_config import TARGET_MODEL_SIZE, get_model_id, get_results_prefix
 
 # Step 1: Set paths and model identifiers.
-base_results_dir = '/Mechanistically_Steering/baselines/results/'
-output_csv = f'/Mechanistically_Steering/baselines/results/all_gemma_{TARGET_MODEL_SIZE}_inference_results.csv'
+project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+base_results_dir = os.path.join(project_dir, 'baselines', 'results')
+output_csv = os.path.join(base_results_dir, f'all_gemma_{TARGET_MODEL_SIZE}_inference_results.csv')
 
 model_id = get_model_id(TARGET_MODEL_SIZE)
 target_results_prefix = get_results_prefix(TARGET_MODEL_SIZE)
