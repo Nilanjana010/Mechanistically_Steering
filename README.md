@@ -46,6 +46,14 @@
 5. Extract results (`baselines/extract_results.py`).
 6. Run judge (`baselines/run_judge.py`).
 
+## Comparison:
+
+1. Complete the Gemma 2-2B baseline.
+2. Place the trusted `key_3_details_updated_scores` pickle file in `Comparison/`.
+3. Convert the pickle to JSON (`Comparison/pkl_to_json.py`). Only convert pickle files you trust, because loading a pickle can execute code.
+4. Run the comparison (`Comparison/run_comparison.py`). It compares the Layer 16 steered scores with baseline scores from `baselines/results/pairs_2b.csv` and `baselines/results/scores_2b.csv`.
+5. For results refer to `Comparison/results/layer16_baseline_vs_steered.csv`.
+
 ## Experiments:
 
 Experiments with Llama-3.1-8B and Conversations Gone Awry.
